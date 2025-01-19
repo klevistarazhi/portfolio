@@ -47,14 +47,10 @@ try {
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = "Mesazh i ri nga $name";
     $mail->Body    = "
-    <div style='width: 100%;max-width: 500px;padding: 30px;background-color: #f0f0f0;fon-family: system-ui;'>
-        <h1>Mesazh i ri nga $name</h1>
-        <p>$message</p>
-        <hr>
-        <ul>
-            <li>Email: <a href='mailto:$email'>$email<a></li>
-        </ul>
-    </div>
+    <h1>Mesazh i ri nga $name</h1>
+    <p>Email: <a href='mailto:$email'>$email<a></p>
+    <hr>
+    <p>$message</p>
     ";
 
     $mail->send();
