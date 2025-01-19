@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            text-align: center;
+            background-image: url('back.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: #808080;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 100px 20px 20px 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        section {
+            margin-bottom: 40px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        .hero {
+            margin-top: 50px;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid #fff;
+        }
+
+        .about, .projects, .education, .contact, .blog {
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            margin-top: 30px;
+        }
+
+        /* About Me Section */
+        .about {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .about h2 {
+            font-size: 30px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .about ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .about ul li {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .about a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .about a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* My Projects Section */
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* Project Card */
+        .project {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Project Image */
+        .project img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Project Title */
+        .project h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Project Link */
+        .project a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        /* Hover Effects */
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .project a:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form input, .form textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .form button:hover {
+            background-color: #0056b3;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-info div {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education & Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#blog">Blog</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="home" class="hero">
+        <img src="profil.jpeg" alt="Profile Photo" class="profile-photo">
+        <h1>Welcome to My Portfolio</h1>
+        <p>This is a short introduction about who I am and what I do.</p>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>I’m a 20-year-old web developer from Laç, currently living in Tirana for the past 15 years. After gaining diverse work experience over the past 6 years, including bartending, I discovered my passion for technology and decided to transition into web development. I’m now focused on building dynamic websites and applications, constantly learning and improving my skills.</p>
+        <ul>
+            <li><a href="https://www.linkedin.com/in/yourname" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+        </ul>
+        <a href="CV.pdf" download>Download My CV</a>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="project">
+            <img src="project.jpg" alt="Project 1">
+            <h3>Project 1</h3>
+            <a href="file:///C:/Users/35569/Desktop/klevis%20projekte/work1.html" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+            <img src="project2.jpg" alt="Project 2">
+            <h3>Project 2</h3>
+            <a href="file:///C:/Users/35569/Desktop/klevis%20projekte/work%202.html" target="_blank">View Project</a>
+        </div>
+    </section>
+
+    <section id="education" class="education">
+        <h2>Education & Experience</h2>
+        <h3>Education</h3>
+        <p>Currently in the second year at University 'BEDER'.</p>
+        <h3>Experience</h3>
+        <p>Worked as a graphic designer at Alfa Press for about six months.<br>
+           Worked as a waiter for about three months.<br>
+           Worked at MCN News for about a year and a half.<br>
+           Worked for a year and a half at EURO NEWS.</p>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-info">
+            <div>Email: <a href="mailto:ktarazhi23@beder.edu.al">ktarazhi23@beder.edu.al</a></div>
+            <div>Phone: +123-456-7890</div>
+            <div>Address: Tirana, Albania</div>
+        </div>
+        <form class="form" action="mailto:ktarazhi23@beder.edu.al" method="POST" enctype="text/plain">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <section id="blog" class="blog">
+        <h2>Blog</h2>
+        <article>
+            <h3>Why Web Development is a Great Career Choice</h3>
+            <p>Web development is a fast-growing field with increasing demand for skilled developers. As businesses become more digital, the need for web expertise continues to rise. One of the key benefits of web development is the flexibility it offers, with opportunities for remote work and freelancing.</p>
+            <p>Additionally, web development is a career that encourages creativity and problem-solving. Each project presents new challenges, making the work dynamic and rewarding. Plus, the tech world is always evolving, providing plenty of opportunities for continuous learning and growth.</p>
+            <p>In short, web development is an exciting and versatile career choice with plenty of opportunities for both personal and professional development.</p>
+        </article>
+    </section>
+</main>
+
+</body>
+</html>
